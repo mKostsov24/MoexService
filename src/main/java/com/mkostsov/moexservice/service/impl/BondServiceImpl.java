@@ -2,7 +2,7 @@ package com.mkostsov.moexservice.service.impl;
 
 import com.mkostsov.moexservice.dto.*;
 import com.mkostsov.moexservice.exception.BondNotFoundException;
-import com.mkostsov.moexservice.model.Currency;
+import com.mkostsov.moexservice.model.CurrencyEnum;
 import com.mkostsov.moexservice.model.Stock;
 import com.mkostsov.moexservice.service.api.BondService;
 import lombok.RequiredArgsConstructor;
@@ -39,7 +39,7 @@ public class BondServiceImpl implements BondService {
                 .name(b.getName())
                 .figi(b.getTicker())
                 .type("Bond")
-                .currency(Currency.RUB)
+                .currencyEnum(CurrencyEnum.RUB)
                 .source("MOEX")
                 .build()).collect(Collectors.toList());
         return StocksDto.builder().stocks(stocks).build();
